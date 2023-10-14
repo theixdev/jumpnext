@@ -4,8 +4,9 @@ import NavMenuHeader from '@/components/Navigation/NavMenuHeader';
 import { LoginButton } from './LoginButton';
 import HamburgerButton from './HamburgerButton';
 import { useState } from 'react';
-import NavSideBar from '@/components/Navigation/NavSidebar';
 import { useUser } from '@auth0/nextjs-auth0/client';
+import dynamic from 'next/dynamic';
+const NavSideBar = dynamic(() => import('@/components/Navigation/NavSidebar'), { ssr: false });
 
 export const PageHeader = () => {
     const { user } = useUser();

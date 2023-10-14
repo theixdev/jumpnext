@@ -6,15 +6,15 @@ import { useEffect } from 'react';
 
 const NavSideBar = () => {
     const [openNavSideBar, setOpenNavSideBar] = useAtom(openNavSideBarAtom);
-    // const size = useWindowSize()
+    const size = useWindowSize();
 
-    // // Let's close the side bar if the width gets too wide
-    // useEffect(() => {
-    //     if (!size.width) return
-    //     if (size.width > 768 && openNavSideBar) {
-    //         setOpenNavSideBar(false)
-    //     }
-    // }, [openNavSideBar, setOpenNavSideBar, size.width])
+    // Let's close the side bar if the width gets too wide
+    useEffect(() => {
+        if (!size.width) return;
+        if (size.width > 768 && openNavSideBar) {
+            setOpenNavSideBar(false);
+        }
+    }, [openNavSideBar, setOpenNavSideBar, size.width]);
 
     const toggleSidebar = () => {
         setOpenNavSideBar((state) => !state);
